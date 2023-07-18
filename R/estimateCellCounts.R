@@ -54,6 +54,8 @@ pickCompProbes <- function(mSet, cellTypes = NULL, numProbes = 50,
     }
 
     trainingProbes <- unique(unlist(probeList))
+    # From the https://support.bioconductor.org/p/9148370/ suggested edit
+    trainingProbes <- trainingProbes[!is.na(trainingProbes)]
     p <- p[trainingProbes,]
 
     pMeans <- colMeans2(p)
